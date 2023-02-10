@@ -1,0 +1,18 @@
+
+
+<div class="w-full">
+<h1 class="text-7xl text-center text-slate-50 font-bold px-4 mt-4">Welcome to BoizChan!</h1>
+<p class="text-2xl text-center text-slate-50 mt-5 font-bold mt-14 px-5">BoizChan is the best 4chan alternative</p>
+</div>
+<div class="p-5 mt-5 ">
+
+<div class="bg-[#111827] w-full rounded-md p-10 shadow-md">
+<h3 class="text-slate-50 text-2xl font-bold pb-5">Boards: </h3>
+<% @categories.each do |category|%>
+  <a href=<%= "/categories/#{category.id}"%> class="flex flex-row items-center">
+   <span class="dot mr-2"></span><strong class="text-lg list-disc"><%= category.name %></strong>
+  </a>
+  <br>
+<% end %>
+</div>
+</div>

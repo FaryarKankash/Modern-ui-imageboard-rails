@@ -1,0 +1,40 @@
+<h1 class="text-3xl text-slate-50 font-bold px-6 mt-4 mb-3"><%= @post.title%></h1>
+
+<div class="px-5 mb-5">
+  <div class="bg-[#111827] w-full rounded-md p-10 shadow-md mb-5">
+    <p>
+       <%= @post.content%>
+    </p>
+  </div>
+  <div class="bg-[#111827] w-full rounded-md p-10 shadow-md">
+    <h3 class="text-slate-50 text-2xl font-bold pb-5">Add comment</h3>
+    <%= form_with scope: :comment, url: "/createcomment", local: true do |f|%>
+        <%= f.label :content, class:"form-label inline-block mt-2 text-slate-50 text-lg" %>
+        <%= f.text_field :content, class: "
+        form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+         text-[#1d4ed8]
+        bg-white bg-clip-padding
+        border border-solid border-gray-300 border-2
+        rounded
+        transition
+        ease-in-out
+        m-0
+        focus:text-[#1d4ed8] focus:bg-white focus:border-[#1e3a8a] focus:outline-none
+      "%>
+        <%= f.hidden_field :post_id, value: @post.id%>
+        <%= f.submit class: "mt-4 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded w-40" %>
+    <% end %>
+  </div>
+  <div class="bg-[#111827] w-full rounded-md p-10 shadow-md mt-5">
+    <h3 class="text-slate-50 text-2xl font-bold pb-5">Comments:</h3>
+    <% @comments.each do |comment|%>
+       <div class="bg-[#312e81] w-full rounded-md p-5 shadow-md mt-3 text-slate-50"><p><%= comment.content%></p></div>
+    <% end %>
+  </div>
+</div>
